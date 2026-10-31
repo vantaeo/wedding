@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>태호 & 주형 모바일 청첩장</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Noto Serif KR & Gowun Batang Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Serif+KR:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Gowun Batang', 'Noto Serif KR', serif;
+            background-color: #f7f5f0;
+            color: #4a4238;
+        }
+        .paper-texture {
+            background-color: #fcfbfa;
+            background-image: radial-gradient(#e5decf 0.75px, transparent 0.75px);
+            background-size: 16px 16px;
+        }
+        .gold-border {
+            border: 1px solid #d4c5b1;
+            box-shadow: inset 0 0 0 4px #faf8f5, inset 0 0 0 5px #d4c5b1;
+        }
+        .tab-active {
+            color: #8c6d46;
+            border-bottom: 2px solid #8c6d46;
+            font-weight: 700;
+        }
+        /* Fade animation */
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="flex justify-center min-h-screen">
+
+    <!-- Mobile Screen Wrapper Container -->
+    <div class="w-full max-w-md bg-[#fcfbfa] min-h-screen shadow-2xl flex flex-col relative pb-20 border-x border-[#e8dfd1]">
+        
+        <!-- Header Banner -->
+        <header class="text-center py-6 border-b border-[#ebd8c3]/60 bg-[#f8f5ee]">
+            <p class="text-xs tracking-widest text-[#9c846b] uppercase mb-1">WEDDING INVITATION</p>
+            <h1 class="text-xl font-bold tracking-wider text-[#5c4935]">태호 & 주형의 소식</h1>
+            <p class="text-xs text-[#a3917e] mt-1">2026. 11. 07 SAT 12:30 PM</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="flex border-b border-[#ebd8c3] bg-[#faf7f2] sticky top-0 z-20 text-sm">
+            <button onclick="switchTab('invite')" id="tab-invite" class="flex-1 py-3 text-center transition-all tab-active">
+                <i class="fa-regular fa-envelope mr-1.5"></i>모바일 초대장
+            </button>
+            <button onclick="switchTab('account')" id="tab-account" class="flex-1 py-3 text-center text-[#8c7b6b] hover:text-[#5c4935] transition-all">
+                <i class="fa-regular fa-heart mr-1.5"></i>마음 전하실 곳
+            </button>
+            <button onclick="switchTab('map')" id="tab-map" class="flex-1 py-3 text-center text-[#8c7b6b] hover:text-[#5c4935] transition-all">
+                <i class="fa-solid fa-location-dot mr-1.5"></i>오시는 길
+            </button>
+        </nav>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="flex-1 px-4 py-6">
+
+            <!-- PAGE 1: MAIN INVITATION (초대장) -->
+            <section id="page-invite" class="fade-in space-y-6">
+                <!-- Inner Card Framing -->
+                <div class="paper-texture p-6 rounded-lg gold-border text-center space-y-6">
+                    
+                    <!-- Decorative Emblem -->
+                    <div class="flex justify-center items-center my-2">
+                        <svg width="100" height="24" viewBox="0 0 100 24" fill="none" stroke="#b59c7d" stroke-width="1.2">
+                            <path d="M10 12 C 30 2, 40 22, 50 12 C 60 2, 70 22, 90 12" />
+                            <circle cx="50" cy="12" r="3" fill="#b59c7d" />
+                            <circle cx="25" cy="10" r="1.5" fill="#b59c7d" />
+                            <circle cx="75" cy="10" r="1.5" fill="#b59c7d" />
+                        </svg>
+                    </div>
+
+                    <h2 class="text-lg font-bold text-[#4a3a2a] tracking-wide">초대합니다</h2>
+
+                    <!-- Invitation Letter Body -->
+                    <div class="text-sm leading-relaxed text-[#5a4e40] space-y-3 py-2 font-serif">
+                        <p>결혼 소식을 알려드립니다.</p>
+                        <p class="pt-1">
+                            예식은 양가 부모님만 모시고<br>
+                            성당에서 올리며,
+                        </p>
+                        <p>
+                            이어지는 식사 자리에<br>
+                            소정한 분들을 모시고자 합니다.
+                        </p>
+                        <p>
+                            바쁘시더라도 오셔서<br>
+                            두 사람의 새로운 출발을<br>
+                            함께 축복해 주신다면<br>
+                            더없이 감사하겠습니다.
+                        </p>
+                    </div>
+
+                    <hr class="border-t border-[#e3d7c5] my-4 w-3/4 mx-auto">
+
+                    <!-- Family & Groom/Bride Names -->
+                    <div class="space-y-1 text-sm font-medium text-[#4a3a2a]">
+                        <p><span class="text-[#8c7b6b]">임창수 · 이연순</span> 의 장남 <strong class="text-[#2b2219] font-bold text-base">태호</strong></p>
+                        <p><span class="text-[#8c7b6b]">조기성 · 장은희</span> 의 장녀 <strong class="text-[#2b2219] font-bold text-base">주형</strong></p>
+                    </div>
+
+                    <hr class="border-t border-[#e3d7c5] my-4 w-3/4 mx-auto">
+
+                    <!-- Date & Venue Info Summary -->
+                    <div class="space-y-3">
+                        <div>
+                            <span class="text-xs px-2 py-0.5 bg-[#f0e9dd] text-[#735e47] rounded-full">일시</span>
+                            <p class="text-sm font-semibold text-[#3b2e20] mt-1">2026년 11월 7일 (토) 낮 12시 30분</p>
+                        </div>
+                        <div>
+                            <span class="text-xs px-2 py-0.5 bg-[#f0e9dd] text-[#735e47] rounded-full">장소</span>
+                            <p class="text-sm font-semibold text-[#3b2e20] mt-1">벤디시온</p>
+                            <p class="text-xs text-[#786959]">하남시 감일중앙로 80 1층 1006호</p>
+                        </div>
+                    </div>
+
+                    <!-- Decorative Emblem Bottom -->
+                    <div class="flex justify-center items-center pt-2">
+                        <svg width="100" height="24" viewBox="0 0 100 24" fill="none" stroke="#b59c7d" stroke-width="1.2">
+                            <path d="M10 12 C 30 2, 40 22, 50 12 C 60 2, 70 22, 90 12" />
+                            <circle cx="50" cy="12" r="3" fill="#b59c7d" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Newly Uploaded Wedding Photo Section at Bottom -->
+                <div class="mt-8 space-y-2">
+                    <p class="text-center text-xs tracking-wider text-[#8c7b6b] uppercase">— Main Wedding Photo —</p>
+                    <div class="rounded-lg overflow-hidden border border-[#d6c7b2] shadow-md bg-white">
+                        <!-- Simulated Photo displaying uploaded couple image -->
+                        <div class="relative">
+                            <img src="KakaoTalk_20261031_112118507.jpg" alt="태호 & 주형 웨딩사진" class="w-full h-auto object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop';">
+                            <div class="p-3 text-center bg-[#faf7f2] border-t border-[#ebd8c3]">
+                                <p class="text-xs text-[#6b5847] italic">"저희 두 사람 아름답게 살겠습니다."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shortcut Buttons -->
+                <div class="pt-4 flex gap-2">
+                    <button onclick="switchTab('account')" class="flex-1 py-2.5 bg-[#8c6d46] text-white text-xs rounded-md shadow hover:bg-[#735836] transition-colors">
+                        <i class="fa-regular fa-heart mr-1"></i> 마음 전하실 곳 보기
+                    </button>
+                    <button onclick="switchTab('map')" class="flex-1 py-2.5 bg-[#4a3e31] text-white text-xs rounded-md shadow hover:bg-[#362c22] transition-colors">
+                        <i class="fa-solid fa-map-location-dot mr-1"></i> 오시는 길 확인
+                    </button>
+                </div>
+            </section>
+
+            <!-- PAGE 2: ACCOUNT / GIFT PAGE (마음 전하실 곳) -->
+            <section id="page-account" class="hidden fade-in space-y-6">
+                <div class="text-center space-y-2">
+                    <div class="w-10 h-10 rounded-full bg-[#f2e9dc] text-[#8c6d46] flex items-center justify-center mx-auto text-lg">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h2 class="text-base font-bold text-[#4a3a2a]">마음 전하실 곳</h2>
+                    <p class="text-xs text-[#7a6b5c] leading-relaxed">
+                        축복의 마음을 담아 축의금을 전달하고자 하시는 분들을 위해<br>계좌번호를 안내해 드립니다.
+                    </p>
+                </div>
+
+                <!-- Groom Side Account -->
+                <div class="bg-white p-5 rounded-lg border border-[#e0d3c1] shadow-sm space-y-3">
+                    <div class="flex justify-between items-center border-b border-[#f0e6d8] pb-2">
+                        <span class="text-xs font-bold text-[#8c6d46] bg-[#f8f3eb] px-2 py-0.5 rounded">신랑 측 계좌</span>
+                        <span class="text-xs text-[#8c7b6b]">예금주: 임창수</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-between pt-1">
+                        <div>
+                            <p class="text-xs text-[#887867]">국민은행</p>
+                            <p class="text-sm font-bold text-[#3d3226] font-mono tracking-wide" id="acc-number">331302-04-248506</p>
+                        </div>
+                        <button onclick="copyToClipboard('33130204248506', '국민은행 331302-04-248506')" class="px-3 py-1.5 bg-[#f0e9dd] hover:bg-[#e4d8c5] text-[#5c4935] text-xs font-medium rounded transition-colors flex items-center gap-1">
+                            <i class="fa-regular fa-copy"></i> 복사
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Kakao Pay / Remittance Note -->
+                <div class="p-4 bg-[#f8f5ee] rounded-lg border border-[#ebd8c3] text-center space-y-2">
+                    <p class="text-xs text-[#6b5a4b] leading-relaxed">
+                        따뜻한 축하와 격려의 말씀만으로도 큰 힘이 됩니다.<br>감사한 마음으로 소중히 간직하겠습니다.
+                    </p>
+                </div>
+            </section>
+
+            <!-- PAGE 3: MAP & VENUE GUIDE (오시는 길) -->
+            <section id="page-map" class="hidden fade-in space-y-6">
+                
+                <div class="text-center space-y-1">
+                    <h2 class="text-base font-bold text-[#4a3a2a]">오시는 길 안내</h2>
+                    <p class="text-xs font-semibold text-[#8c6d46]">벤디시온 (BENDICION)</p>
+                    <p class="text-xs text-[#786959]">경기도 하남시 감일중앙로 80 1층 1006호</p>
+                </div>
+
+                <!-- Sub Navigation inside Location page -->
+                <div class="flex bg-[#ede5d8] p-1 rounded-lg text-xs font-medium">
+                    <button onclick="showRoute('subway1')" id="btn-subway1" class="flex-1 py-1.5 rounded-md bg-white text-[#4a3a2a] shadow-sm font-bold">몽촌토성역 출발</button>
+                    <button onclick="showRoute('subway2')" id="btn-subway2" class="flex-1 py-1.5 rounded-md text-[#786959]">올림픽공원역 출발</button>
+                    <button onclick="showRoute('detail')" id="btn-detail" class="flex-1 py-1.5 rounded-md text-[#786959]">상세 매장안내</button>
+                </div>
+
+                <!-- Route 1: 몽촌토성역 -->
+                <div id="route-subway1" class="space-y-3">
+                    <div class="bg-white p-3 rounded-lg border border-[#e3d7c5]">
+                        <span class="inline-block px-2 py-0.5 bg-blue-600 text-white text-[11px] font-bold rounded mb-1">35번 버스 이용</span>
+                        <p class="text-xs text-[#5c4935] leading-relaxed">
+                            <strong>8호선 몽촌토성역 2번 출구</strong> ➔ 정류장까지 도보 이동 ➔ <strong>35번 버스 승차</strong> ➔ 감일푸르지오마크베르 정류장 하차
+                        </p>
+                    </div>
+                    <div class="rounded-lg overflow-hidden border border-[#d6c7b2] shadow-sm">
+                        <img src="yakdo_1of3.png" alt="몽촌토성역 출발 약도" class="w-full h-auto" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x600?text=%EB%AA%BD%EC%B2%9D%ED%86%A0%EC%84%B1%EC%97%AD+%EC%B6%9C%EB%B0%9C+%EC%95%BD%EB%8F%84';">
+                    </div>
+                </div>
+
+                <!-- Route 2: 올림픽공원역 -->
+                <div id="route-subway2" class="hidden space-y-3">
+                    <div class="bg-white p-3 rounded-lg border border-[#e3d7c5]">
+                        <span class="inline-block px-2 py-0.5 bg-purple-600 text-white text-[11px] font-bold rounded mb-1">35번 버스 이용</span>
+                        <p class="text-xs text-[#5c4935] leading-relaxed">
+                            <strong>5·9호선 올림픽공원역 1번 출구</strong> ➔ 정류장까지 도보 이동 ➔ <strong>35번 버스 승차</strong> ➔ 감일푸르지오마크베르 정류장 하차
+                        </p>
+                    </div>
+                    <div class="rounded-lg overflow-hidden border border-[#d6c7b2] shadow-sm">
+                        <img src="yakdo_2of3.png" alt="올림픽공원역 출발 약도" class="w-full h-auto" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x600?text=%EC%98%AC%EB%A6%B2%ED%94%BD%EA%B3%B5%EC%9B%90%EC%97%AD+%EC%B6%9C%EB%B0%9C+%EC%95%BD%EB%8F%84';">
+                    </div>
+                </div>
+
+                <!-- Route 3: 하차 후 도보 및 매장 찾아오시는 길 -->
+                <div id="route-detail" class="hidden space-y-4">
+                    <div class="bg-white p-3 rounded-lg border border-[#e3d7c5]">
+                        <span class="inline-block px-2 py-0.5 bg-emerald-700 text-white text-[11px] font-bold rounded mb-1">도보 약 3분</span>
+                        <p class="text-xs text-[#5c4935] leading-relaxed">
+                            감일푸르지오마크베르 정류장 하차 ➔ 도보 약 3분 이동 ➔ <strong>벤디시온 1층 1006호</strong> 도착
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <p class="text-xs font-bold text-[#4a3a2a] border-l-2 border-[#8c6d46] pl-2">1. 하차 후 도보 경로</p>
+                        <div class="rounded-lg overflow-hidden border border-[#d6c7b2] shadow-sm">
+                            <img src="yakdo_3of3.jpg" alt="정류장 하차 후 약도" class="w-full h-auto" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x600?text=%ED%95%98%EC%B0%A8+%ED%9B%84+%EB%8F%84%EB%B3%B4+%EC%95%BD%EB%8F%84';">
+                        </div>
+
+                        <p class="text-xs font-bold text-[#4a3a2a] border-l-2 border-[#8c6d46] pl-2 pt-2">2. 건물 내부 및 주차/에스컬레이터/엘리베이터 안내</p>
+                        <div class="rounded-lg overflow-hidden border border-[#d6c7b2] shadow-sm">
+                            <img src="벤디시온.jpg" alt="벤디시온 상세 찾아오시는 길" class="w-full h-auto" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x800?text=%EB%B2%A4%EB%94%94%EC%8B%9C%EC%98%A8+%EC%B0%BE%EC%95%84%EC%98%A4%EC%8B%9C%EB%8A%94+%EA%B8%B8';">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Map Quick Buttons -->
+                <div class="pt-2 grid grid-cols-2 gap-2 text-center">
+                    <a href="https://map.naver.com/v5/search/%ED%95%98%EB%83%84%EC%8B%9C%20%EA%B0%90%EC%9D%BC%EC%A5%9B%EC%95%99%EB%A1%9C%2080" target="_blank" class="py-2 bg-[#03C75A] text-white text-xs font-bold rounded shadow flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-map"></i> 네이버 지도
+                    </a>
+                    <a href="https://map.kakao.com/link/search/하남시 감일중앙로 80" target="_blank" class="py-2 bg-[#FEE500] text-[#191919] text-xs font-bold rounded shadow flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-[#191919] fa-comment"></i> 카카오 맵
+                    </a>
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- Bottom Kakao Share Simulation Button -->
+        <footer class="fixed bottom-0 max-w-md w-full bg-[#fcfbfa] border-t border-[#ebd8c3] p-3 text-center z-30">
+            <button onclick="shareKakao()" class="w-full py-2.5 bg-[#FEE500] hover:bg-[#ebd300] text-[#191919] text-xs font-bold rounded-md shadow flex items-center justify-center gap-2 transition-colors">
+                <i class="fa-solid fa-comment text-sm"></i> 카카오톡으로 링크 공유하기
+            </button>
+        </footer>
+
+        <!-- Toast Notification for Copy -->
+        <div id="toast" class="fixed bottom-16 left-1/2 transform -translate-x-1/2 bg-[#362c22] text-white text-xs px-4 py-2 rounded-full shadow-lg opacity-0 pointer-events-none transition-opacity duration-300">
+            계좌번호가 복사되었습니다.
+        </div>
+
+    </div>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        // Tab switching logic
+        function switchTab(tabName) {
+            const pages = ['invite', 'account', 'map'];
+            pages.forEach(page => {
+                const pageEl = document.getElementById(`page-${page}`);
+                const tabEl = document.getElementById(`tab-${page}`);
+                
+                if (page === tabName) {
+                    pageEl.classList.remove('hidden');
+                    tabEl.classList.add('tab-active');
+                    tabEl.classList.remove('text-[#8c7b6b]');
+                } else {
+                    pageEl.classList.add('hidden');
+                    tabEl.classList.remove('tab-active');
+                    tabEl.classList.add('text-[#8c7b6b]');
+                }
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Sub-route switching logic inside Map section
+        function showRoute(routeName) {
+            const routes = ['subway1', 'subway2', 'detail'];
+            routes.forEach(r => {
+                const routeEl = document.getElementById(`route-${r}`);
+                const btnEl = document.getElementById(`btn-${r}`);
+                if (r === routeName) {
+                    routeEl.classList.remove('hidden');
+                    btnEl.classList.add('bg-white', 'text-[#4a3a2a]', 'shadow-sm', 'font-bold');
+                    btnEl.classList.remove('text-[#786959]');
+                } else {
+                    routeEl.classList.add('hidden');
+                    btnEl.classList.remove('bg-white', 'text-[#4a3a2a]', 'shadow-sm', 'font-bold');
+                    btnEl.classList.add('text-[#786959]');
+                }
+            });
+        }
+
+        // Copy to Clipboard logic
+        function copyToClipboard(text, description) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => showToast(description + ' 복사 완료!'));
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showToast(description + ' 복사 완료!');
+                } catch (err) {
+                    showToast('복사에 실패했습니다.');
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+
+        // Show toast popup
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.innerText = msg;
+            toast.classList.remove('opacity-0');
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+            }, 2000);
+        }
+
+        // Simulated KakaoTalk Share
+        function shareKakao() {
+            if (navigator.share) {
+                navigator.share({
+                    title: '태호 & 주형 모바일 청첩장',
+                    text: '2026년 11월 7일 (토) 낮 12:30 벤디시온',
+                    url: window.location.href,
+                }).catch(() => {
+                    copyToClipboard(window.location.href, '청첩장 웹 링크');
+                });
+            } else {
+                copyToClipboard(window.location.href, '청첩장 웹 링크');
+            }
+        }
+    </script>
+</body>
+</html>
