@@ -95,7 +95,7 @@
                         </p>
                     </div>
                     <div class="rounded-lg overflow-hidden border border-[#d6c7b2] shadow-sm">
-                        <img src="yakdo_1of3.png" alt="몽촌토성역 출발 약도" class="w-full h-auto">
+                        <img src="web_yakdo_1.png" alt="몽촌토성역 출발 약도" class="w-full h-auto">
                     </div>
                 </div>
 
@@ -108,7 +108,7 @@
                         </p>
                     </div>
                     <div class="rounded-lg overflow-hidden border border-[#d6c7b2] shadow-sm">
-                        <img src="yakdo_2of3.png" alt="올림픽공원역 출발 약도" class="w-full h-auto">
+                        <img src="web_yakdo_2.png" alt="올림픽공원역 출발 약도" class="w-full h-auto">
                     </div>
                 </div>
 
@@ -124,7 +124,7 @@
                     <div class="space-y-3">
                         <p class="text-xs font-bold text-[#4a3a2a] border-l-2 border-[#8c6d46] pl-2">1. 하차 후 도보 경로</p>
                         <div class="rounded-lg overflow-hidden border border-[#d6c7b2] shadow-sm">
-                            <img src="yakdo_3of3.jpg" alt="정류장 하차 후 약도" class="w-full h-auto">
+                            <img src="web_yakdo_3.png" alt="정류장 하차 후 약도" class="w-full h-auto">
                         </div>
 
                         <p class="text-xs font-bold text-[#4a3a2a] border-l-2 border-[#8c6d46] pl-2 pt-2">2. 건물 내부 및 주차/에스컬레이터/엘리베이터 안내</p>
@@ -321,4 +321,57 @@
                     routeEl.classList.remove('hidden');
                     btnEl.classList.add('bg-white', 'text-[#4a3a2a]', 'shadow-sm', 'font-bold');
                     btnEl.classList.remove('text-[#786959]');
-                } else
+                } else {
+                    routeEl.classList.add('hidden');
+                    btnEl.classList.remove('bg-white', 'text-[#4a3a2a]', 'shadow-sm', 'font-bold');
+                    btnEl.classList.add('text-[#786959]');
+                }
+            });
+        }
+
+        // Copy to Clipboard logic
+        function copyToClipboard(text, description) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => showToast(description + ' 복사 완료!'));
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showToast(description + ' 복사 완료!');
+                } catch (err) {
+                    showToast('복사에 실패했습니다.');
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+
+        // Show toast popup
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.innerText = msg;
+            toast.classList.remove('opacity-0');
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+            }, 2000);
+        }
+
+        // Simulated KakaoTalk Share
+        function shareKakao() {
+            if (navigator.share) {
+                navigator.share({
+                    title: '태호 & 주형 모바일 청첩장',
+                    text: '2026년 11월 7일 (토) 낮 12:30 벤디시온',
+                    url: window.location.href,
+                }).catch(() => {
+                    copyToClipboard(window.location.href, '청첩장 웹 링크');
+                });
+            } else {
+                copyToClipboard(window.location.href, '청첩장 웹 링크');
+            }
+        }
+    </script>
+</body>
+</html>
